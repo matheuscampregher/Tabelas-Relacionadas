@@ -1,0 +1,17 @@
+create table public.dados_uso (
+  id bigint generated always as identity not null,
+  pais_id bigint null,
+  empresa_id bigint null,
+  ia_id bigint null,
+  data_center text null,
+  uso_principal text null,
+  status text null,
+  pico_uso text null,
+  versao_ia text null,
+  tipo_denominado text null,
+  constraint dados_uso_pkey primary key (id),
+  constraint uq_dados_uso_empresa unique (empresa_id),
+  constraint fk_dados_uso_empresas foreign KEY (empresa_id) references empresas (id),
+  constraint fk_dados_uso_ia foreign KEY (ia_id) references ias (id),
+  constraint fk_dados_uso_paises foreign KEY (pais_id) references paises (id)
+) TABLESPACE pg_default;
