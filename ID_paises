@@ -1,0 +1,5 @@
+create table public.paises (
+  id bigint generated always as identity not null,
+  nome_pais text not null,
+  constraint paises_id_pkey primary key (id)
+) TABLESPACE pg_default;
