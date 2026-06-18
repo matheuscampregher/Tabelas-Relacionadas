@@ -1,0 +1,12 @@
+create table public.localização (
+  pais_id bigint not null,
+  empresa_id bigint not null,
+  "Região" text null,
+  "Cidade" text null,
+  "Continente" text null,
+  "Clima" text null,
+  "Idioma Principal" text null,
+  constraint Localização_pkey primary key (pais_id, empresa_id),
+  constraint fk_localizacao_empresa foreign KEY (empresa_id) references empresas (id),
+  constraint fk_localizacao_pais foreign KEY (pais_id) references paises (id)
+) TABLESPACE pg_default;
