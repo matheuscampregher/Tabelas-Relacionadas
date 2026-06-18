@@ -1,0 +1,13 @@
+create table public.agua (
+  pais_id bigint not null,
+  empresa_id bigint not null,
+  "Consumo da Água(Milhões/Ano)" bigint null,
+  "Tipo de Resfriamento" text null,
+  "Temperatura Média(C°)" integer null,
+  "Reuso da Água" text null,
+  "Proximidade da Água" text null,
+  "Fonte de Energia" text null,
+  constraint Tabela da Água_pkey primary key (pais_id, empresa_id),
+  constraint fk_agua_empresa foreign KEY (empresa_id) references empresas (id),
+  constraint fk_agua_pais foreign KEY (pais_id) references paises (id)
+) TABLESPACE pg_default;
