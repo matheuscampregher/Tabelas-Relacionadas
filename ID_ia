@@ -1,0 +1,5 @@
+create table public.ias (
+  id bigint generated always as identity not null,
+  nome_ia text not null,
+  constraint ias_id_pkey primary key (id)
+) TABLESPACE pg_default;
