@@ -1,0 +1,16 @@
+create table public.tecnologica (
+  pais_id bigint not null,
+  empresa_id bigint not null,
+  ia_id bigint null,
+  "N° de Usuários(Milhões)" bigint null,
+  "N° de Interações/dia(Milhões)" bigint null,
+  "N° de Servidores" bigint null,
+  "Latência(ms)" bigint null,
+  "Crescimento Anual" text null,
+  "Data Center" text null,
+  "Custo Anual" text null,
+  constraint tecnologica_pkey primary key (pais_id, empresa_id),
+  constraint fk_dados_uso_ia foreign KEY (ia_id) references ias (id),
+  constraint fk_tecnologica_empresa foreign KEY (empresa_id) references empresas (id),
+  constraint fk_tecnologica_pais foreign KEY (pais_id) references paises (id)
+) TABLESPACE pg_default;
